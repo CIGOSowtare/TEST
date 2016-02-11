@@ -9,32 +9,13 @@
 <h:head>
 	<link rel="shortcut icon" type="image/x-icon"
 		href="#{request.contextPath}/img/favicon.ico" />
-	<link href="${request.contextPath}/css/hub-fiscale.css"
-		rel="stylesheet" />
-	<title>Error</title>
+	<link href="${request.contextPath}/css/webtest.css" rel="stylesheet" />
+	<title>Error page</title>
 </h:head>
 <h:body>
 	<p:growl id="growl" showDetail="true" />
-	<p:panel styleClass="login-page-error">
-		<p:panel
-			style="background-color: white; border: none; margin: 0px; width: 500px; left: -40px; top: -15px; position: relative;">
-			<h:graphicImage value="/img/logo_hub.png" width="150px"
-				styleClass="login-image-logo" />
-		</p:panel>
-		<h:panelGrid columns="1" styleClass="error-page-table-image">
-			<h:outputLabel
-				value="An error has occurred, please contact your system administrator."
-				styleClass="icon-label-error-page" />
-			<h:graphicImage value="/img/error.png"
-				styleClass="icon-button-error-page" />
-		</h:panelGrid>
-		<h:panelGrid columns="2"
-			style="text-align: right; width:400px; margin-top:40px;"
-			columnClasses="error-left,error-right">
-			<h:outputLabel value="Return" styleClass="icon-label-error-page-back" />
-			<h:commandButton action="#" onclick="back()" image="/img/back.png"
-				update="growl" styleClass="icon-button-back" />
-		</h:panelGrid>
+	<p:panel >
+		<p:panel></p:panel>
 	</p:panel>
 </h:body>
 </html>

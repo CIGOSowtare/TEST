@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"	value="[%d{dd/MM/yy HH:mm:ss:sss z}] %5p %c [Thread: %t]: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ALMARULES-CORE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/almarules.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"	value="[%d{dd/MM/yy HH:mm:ss:sss z}] %5p %c [Thread: %t]: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="HUB-FISCALE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/hub-fiscale.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"	value="[%d{dd/MM/yy HH:mm:ss:sss z}] %5p %c [Thread: %t]: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="HUB-FISCALE-PRIVACY" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${catalina.home}/logs/hub-fiscale-privacy.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m %n" />
+		</layout>
+	</appender>
+
+	<logger name="org.springframework">
+		<level value="INFO" />
+		<appender-ref ref="ALMARULES-CORE" />
+	</logger>
+
+	<logger name="org.hibernate">
+		<level value="INFO" />
+		<appender-ref ref="ALMARULES-CORE" />
+	</logger>
+
+	<logger name="org.apache.shiro">
+		<level value="INFO" />
+	</logger>
+
+	<logger name="it.almaviva.rules">
+		<level value="DEBUG" />
+		<appender-ref ref="ALMARULES-CORE" />
+	</logger>
+
+	<logger name="org.activi.engine">
+		<level value="INFO" />
+		<appender-ref ref="ALMARULES-CORE" />
+	</logger>
+
+	<logger name="it.almaviva.hub.fiscale" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="HUB-FISCALE" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="privacyLogger" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="HUB-FISCALE-PRIVACY" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</log4j:configuration>

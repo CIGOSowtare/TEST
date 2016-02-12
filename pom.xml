@@ -25,6 +25,7 @@
 		<activiti.version>5.18.0</activiti.version>
 		<groovy.version>2.4.3</groovy.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sqlsheet.version>6.5</sqlsheet.version>
 		<conf.dir>${basedir}/target-environments/conf</conf.dir>
 	</properties>
 	
@@ -365,7 +366,11 @@
 			<artifactId>groovy-all</artifactId>
 			<version>${groovy.version}</version>
 		</dependency>		
-		
+		<dependency>
+			<groupId>com.google.code.sqlsheet</groupId>
+			<artifactId>sqlsheet</artifactId>
+			<version>${sqlsheet.version}</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
